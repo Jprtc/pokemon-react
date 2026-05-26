@@ -87,13 +87,21 @@ function App() {
         }
 
 
-        {/* <PokemonCard
+        <PokemonCard
           nome={"Pikachu?"}
           estagio={1}
           caminhoImagem={pokemons['Mimikyu'].imagem}
-        /> */}
+        />
 
-        <PokemonButton  
+        
+
+
+      </section>
+
+
+      <br/>
+
+          <PokemonButton  
           titulo={'Sou um botão componentizado!'}
           cor='red'
         />
@@ -112,8 +120,6 @@ function App() {
 
         <PokemonButton/>
 
-
-      </section>
     </>
   );
 }
