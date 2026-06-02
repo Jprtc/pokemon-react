@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import PokemonCard from "./Components/PokemonCard/PokemonCard";
-import PokemonButton from "./Components/PokemonButton/PokemonButton";
 // "Banco" de dados dos pokemons
 import pokemons from "./Data/pokemons";
 
@@ -11,6 +10,7 @@ function App() {
     { nome: "Charmander", estagio: 1, caminhoImagem: pokemons['Charmander'].imagem },
     { nome: "Squirtle", estagio: 1, caminhoImagem: pokemons['Squirtle'].imagem },
     { nome: "Bulbasauro", estagio: 1, caminhoImagem: pokemons['Bulbasauro'].imagem },
+    { nome: "Mimikyu", estagio: null, caminhoImagem: pokemons['Mimikyu'].imagem }
   ]);
 
   const [qtdEvoluidos, setQtdEvoluidos ] = useState(0)
@@ -85,41 +85,7 @@ function App() {
           />
         ))
         }
-
-
-        <PokemonCard
-          nome={"Pikachu?"}
-          estagio={1}
-          caminhoImagem={pokemons['Mimikyu'].imagem}
-        />
-
-        
-
-
       </section>
-
-
-      <br/>
-
-          <PokemonButton  
-          titulo={'Sou um botão componentizado!'}
-          cor='red'
-        />
-
-        <PokemonButton  
-          titulo={'Sou um super botao'}
-          cor='white'
-          corDaLetra={'black'}
-        />
-
-        <PokemonButton  
-          titulo={'Sou um botão amarelo!'}
-          cor='yellow'
-          corDaLetra={'black'}
-        />
-
-        <PokemonButton/>
-
     </>
   );
 }
