@@ -12,53 +12,85 @@ import venosaurImagem from "../assets/venosaur.gif";
 
 import fakePikachu from "../assets/mimikyu.png";
 
-const pokemons = {
-    Charmander:{
+// Tive que mudar pra um array de objetos, antes tava como se fosse um objetão com varios pokemons, erro meu :S
+
+const pokemons = [
+    {
+        id: 1,
+        estagio:1,
+        nome:"Charmander",
         evolucao: "Charmeleon",
         imagem: charmanderImagem
     },
-    Charmeleon:{
+    {
+        id: 2,
+        estagio:2,
+        nome:"Charmeleon",
         evolucao:"Charizard",
         imagem: charmeleonImagem
     },
-    Charizard:{
+    {
+        id: 3,
+        estagio:3,
+        nome:"Charizard",
         evolucao: null,
         imagem: charizardImagem
     },
 
 
-    Squirtle:{
+    {
+        id: 4,
+        estagio:1,
+        nome:"Squirtle",
         evolucao:"Wartortle",
         imagem: squirtleImagem
     },
-    Wartortle:{
+    {
+        nome:"Wartortle",
+        estagio:2,
+        id: 5,
         evolucao:"Blastoise",
         imagem: wartortleImagem
     },
-    Blastoise:{
+    {
+        nome:"Blastoise",
+        estagio:3,
+        id: 6,
         evolucao:null,
         imagem: blastoiseImagem
     },
 
 
-    Bulbasauro:{
+    {
+        nome:"Bulbasauro",
+        estagio:1,
+        id: 7,
         evolucao: "Ivysaur",
         imagem: bulbasauroImagem
     },
-    Ivysaur:{
+    {
+        nome:"Ivysaur",
+        estagio:2,
+        id: 8,
         evolucao: "Venosaur",
         imagem: ivysaurImagem
     },
-    Venosaur:{
+    {
+        nome:"Venosaur",
+        estagio:3,
+        id: 9,
         evolucao:null,
         imagem: venosaurImagem
     },
 
 
-    Mimikyu:{
+    {
+        nome:"Mimikyu",
+        estagio:1,
+        id: 10,
         evolucao: null,
         imagem: fakePikachu
     }
-}
+]
 
 export default pokemons

@@ -1,93 +1,23 @@
-import { useState, useEffect } from "react";
 import "./App.css";
-import PokemonCard from "./Components/PokemonCard/PokemonCard";
-// "Banco" de dados dos pokemons
-import pokemons from "./Data/pokemons";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import Pokemon from "./Pages/Pokemon";
+
 
 function App() {
-  
-  const [listaPokemons, setListaPokemons] = useState([
-    { nome: "Charmander", estagio: 1, caminhoImagem: pokemons['Charmander'].imagem },
-    { nome: "Squirtle", estagio: 1, caminhoImagem: pokemons['Squirtle'].imagem },
-    { nome: "Bulbasauro", estagio: 1, caminhoImagem: pokemons['Bulbasauro'].imagem },
-    { nome: "Mimikyu", estagio: null, caminhoImagem: pokemons['Mimikyu'].imagem }
-  ]);
-
-  const [qtdEvoluidos, setQtdEvoluidos ] = useState(0)
-
-    useEffect(() => {
-      console.log('Executa toda vez que o valor da dependencia é alterado')
-      console.log(listaPokemons)
-
-      let pokemonsEvoluidos = listaPokemons.filter(pokemon => pokemon.estagio > 1)
-
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setQtdEvoluidos(pokemonsEvoluidos.length)
-
-    },[listaPokemons])
-
-  // useEffect(() => {
-  //   console.log('Rodarei UMA UNICA VEZ')
-  // },[])
-
-
-
-  function evoluirPokemon(nomePokemon){
-
-    const novaLista = listaPokemons.map((pokemon) => {
-
-      // console.log(pokemon)
-
-      // Verificar qual pokemon foi clicado.
-      if (pokemon.nome === nomePokemon){
-
-        // Pega a próxima evolução no nosso "Banco de dados"
-        const proximaEvolucao = pokemons[pokemon.nome].evolucao;
-
-        // console.log(proximaEvolucao)
-
-        // Caso nao exista proxima evolução, retorna o mesmo pokemon (ele nao evoluira).
-        if(!proximaEvolucao){
-          return pokemon;
-        }
-
-        // Retorna o Pokemon evoluido caso atenda as condições
-        return {
-          nome: proximaEvolucao,
-          estagio: pokemon.estagio + 1,
-          caminhoImagem: pokemons[proximaEvolucao].imagem
-        }
-
-      }
-      // Só retorna o pokemon que nao foi clicado
-      return pokemon
-
-    })
-
-    setListaPokemons(novaLista)
-  }
-
   return (
-    <>
-      <h1>Pokemons!</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/pokemon-react/" element={<Home/>}     /> 
+          <Route
+          path="/pokemon-react/:pokemonId"
+          element={<Pokemon />}
+        />
 
-      <h2>Quantidade de Pokemons Evoluidos: {qtdEvoluidos}</h2>
-
-      <section id="center">
-        {
-        listaPokemons.map((pokemon,index) => (
-          <PokemonCard
-            key={index}
-            nome={pokemon.nome}
-            estagio={pokemon.estagio}
-            caminhoImagem={pokemon.caminhoImagem}
-            evoluirPokemon={() => evoluirPokemon(pokemon.nome)}
-          />
-        ))
-        }
-      </section>
-    </>
-  );
+      </Routes>
+    </BrowserRouter>
+  )
+  
 }
 
 export default App;
