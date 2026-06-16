@@ -4,11 +4,11 @@ function PokemonCard({nome,caminhoImagem,estagio, evoluirPokemon, id }){
     return (
          <div className='CardPokemon'>
             <Link to={`/pokemon-react/${id}`}>
-                <img src={caminhoImagem} width={260} height={280} alt={nome} title={nome} />
+                <img src={caminhoImagem} width={260} height={280} alt={`Ir para a página do ${nome}`}  loading="lazy"    />
             </Link>
             <h2>{nome}</h2>
             <p>Estágio: {estagio}</p>
-            <button onClick={()=> evoluirPokemon(nome)}>Evoluir</button>
+            <button aria-label={`Evoluir o Pokemon ${nome}`} onClick={()=> evoluirPokemon(nome)}>Evoluir</button>
           </div>
     )
 }

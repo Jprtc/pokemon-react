@@ -61,6 +61,7 @@ function Home() {
 
   return (
     <>
+    <main>
       <h1>Pokemons!</h1>
 
       <h2>Quantidade de Pokemons Evoluidos: {qtdEvoluidos}</h2>
@@ -77,6 +78,7 @@ function Home() {
           />
         ))}
       </section>
+      </main>
     </>
   );
 }
